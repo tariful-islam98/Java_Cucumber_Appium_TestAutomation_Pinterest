@@ -2,16 +2,30 @@ package stepDefinitions;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import pages.SignupPage;
 import utils.AndroidSetup;
+
+import java.net.MalformedURLException;
 
 public class SignupSteps {
     AndroidSetup androidSetup = new AndroidSetup();
     SignupPage signupPage;
 
-    public SignupSteps() {
+    public SignupSteps() throws MalformedURLException {
+        androidSetup.setDriver();
         signupPage = new SignupPage(AndroidSetup.driver);
+    }
+    
+    @Given("user enters {string} in the email field for signup")
+    public void userEntersInTheEmailFieldForSignup(String email) {
+        signupPage.enterEmailId(email);
+    }
+
+    @And("clicks continue button for signup")
+    public void clicksContinueButtonForSignup() {
+        signupPage.clickContinueBtn();
     }
 
     @When("User enters {string} in the password field")
@@ -52,5 +66,6 @@ public class SignupSteps {
     @And("clicks topic next button")
     public void clicksTopicNextButton() {
         signupPage.clickTopicNextButton();
+        androidSetup.tearDown();
     }
 }

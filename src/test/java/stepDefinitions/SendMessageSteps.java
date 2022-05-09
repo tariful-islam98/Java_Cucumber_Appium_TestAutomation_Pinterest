@@ -59,6 +59,7 @@ public class SendMessageSteps {
     @Then("message is sent")
     public void messageIsSent() {
         Assert.assertTrue(sendMessagePage.isSent());
+        androidSetup.tearDown();
     }
 
 }

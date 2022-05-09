@@ -19,6 +19,12 @@ Feature: Test multiple actions on Home page
       | soccer |
 
   @Android
+  Scenario: User wants to search a popular topic
+    Given user clicks search icon
+    And taps on a popular topic
+    Then search result is displayed
+
+  @Android
   Scenario Outline: user wants to send message
     Given user clicks inbox icon
     And clicks Messages button
@@ -32,3 +38,11 @@ Feature: Test multiple actions on Home page
     Examples:
       | email                | message |
       | abir0dhaka@gmail.com | Hello   |
+
+  @Android
+  Scenario: user wants to filter updates
+    Given user clicks inbox icon
+    When user taps filter icon
+    And selects photos option
+    Then filtered page should be loaded
+

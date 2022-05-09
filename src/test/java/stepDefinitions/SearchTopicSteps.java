@@ -34,7 +34,7 @@ public class SearchTopicSteps {
     @Then("search result is displayed")
     public void searchResultIsDisplayed() {
         Assert.assertTrue(searchTopicPage.isResultDisplayed());
-//        androidSetup.tearDown();
+        androidSetup.tearDown();
     }
 
 }

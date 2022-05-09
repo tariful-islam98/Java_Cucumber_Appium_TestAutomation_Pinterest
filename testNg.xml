@@ -4,6 +4,7 @@
     <test name="SmokeTest" annotations="@Android" preserve-order="true">
         <classes>
             <class name="testRunner.TestNGTestRunner"/>
+            <class name="testRunner.FailedTestRunner"/>
         </classes>
     </test>
 </suite>

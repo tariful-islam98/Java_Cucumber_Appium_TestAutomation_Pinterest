@@ -14,7 +14,7 @@ public class FbLoginSteps {
     AndroidSetup androidSetup = new AndroidSetup();
 
     public FbLoginSteps() throws MalformedURLException {
-//        androidSetup.setDriver();
+        androidSetup.setDriver();
         fbLoginPage = new FbLoginPage(AndroidSetup.driver);
     }
 
@@ -26,5 +26,6 @@ public class FbLoginSteps {
     @Then("Fb login page should open")
     public void fbLoginPageShouldOpen() {
         Assert.assertTrue(fbLoginPage.isDisplayed());
+         androidSetup.tearDown();
     }
 }

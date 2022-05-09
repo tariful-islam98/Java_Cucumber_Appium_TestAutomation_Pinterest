@@ -14,7 +14,7 @@ public class GoogleLoginSteps {
     GoogleLoginPage googleLoginPage;
 
     public GoogleLoginSteps() throws MalformedURLException {
-//        androidSetup.setDriver();
+        androidSetup.setDriver();
         googleLoginPage = new GoogleLoginPage(AndroidSetup.driver);
     }
 
@@ -26,5 +26,6 @@ public class GoogleLoginSteps {
     @Then("Google login page should open")
     public void googleLoginPageShouldOpen() {
         Assert.assertTrue(googleLoginPage.isDisplayed());
+        androidSetup.tearDown();
     }
 }

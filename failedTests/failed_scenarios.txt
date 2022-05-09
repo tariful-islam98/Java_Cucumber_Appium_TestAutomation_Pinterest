@@ -1,2 +1,0 @@
-file:src/test/java/features/MultipleHomePageTest.feature:19:34
-file:src/test/java/features/Login.feature:13

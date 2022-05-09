@@ -19,7 +19,7 @@ public class LoginSteps {
          * In case it shows NullPointerException or driver is null,
          * then call the androidSetup.setDriver manually from stepDefinitions Constructor
          */
-//        androidSetup.setDriver();
+        androidSetup.setDriver();
         this.loginPage = new LoginPage(AndroidSetup.driver);
     }
 
@@ -46,5 +46,11 @@ public class LoginSteps {
     @Then("Home page is loaded")
     public void homePageIsLoaded() {
         Assert.assertTrue(loginPage.isHomepageLoaded());
+    }
+
+    @Then("Error message should be visible")
+    public void errorMessageShouldBeVisible() {
+        Assert.assertTrue(loginPage.isErrorMsgVisible());
+        androidSetup.tearDown();
     }
 }

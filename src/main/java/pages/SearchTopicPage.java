@@ -36,6 +36,6 @@ public class SearchTopicPage extends PageObjectManager{
 
     public boolean isResultDisplayed(){
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        return isElementDisplayed("id", searchResultConfirmation);
+        return    isElementDisplayed("id", searchResultConfirmation);
     }
 }

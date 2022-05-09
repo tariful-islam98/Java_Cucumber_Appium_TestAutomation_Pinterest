@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class SignupPage extends PageObjectManager {
+    private String emailField =  "//android.widget.EditText[@text='Email address']";
+    private String emailContinueBtn = "//android.widget.Button[@text='Continue']";
     private String passwordField = "com.pinterest.identity:id/signup_password_edit_text";
     private String passwordNxtBtn = "com.pinterest.identity:id/email_sign_next_button";
     private String fullNameField = "com.pinterest.identity:id/signup_name_edit_text";
@@ -20,6 +22,16 @@ public class SignupPage extends PageObjectManager {
 
     public SignupPage(WebDriver driver) {
         super(driver);
+    }
+
+    public void enterEmailId(String email){
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        SendKeysToInputField("xpath", emailField, email);
+    }
+
+    public void clickContinueBtn(){
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        clickElement("xpath", emailContinueBtn);
     }
 
     public void enterPassword(String password) {

@@ -1,8 +1,9 @@
 Feature: Signup test
 
+  @Android
   Scenario Outline: User signs up with email
-    Given user enters "<email>" in the email field
-    And clicks continue button
+    Given user enters "<email>" in the email field for signup
+    And clicks continue button for signup
     When User enters "<password>" in the password field
     And clicks next button
     And enters "<name>" in the full name field

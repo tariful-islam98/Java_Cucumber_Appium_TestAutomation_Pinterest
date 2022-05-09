@@ -11,13 +11,14 @@ public class LoginPage extends PageObjectManager{
     private String passwordField = "com.pinterest.identity:id/password";
     private String loginButton = "com.pinterest.identity:id/login_bt";
     private String bottomNavBar = "com.pinterest:id/bottom_nav_bar";
+    private String invalidPasswordMsg = "com.pinterest.identity:id/incorrect_password";
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     public void enterEmailId(String email){
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
         SendKeysToInputField("xpath", emailField, email);
     }
 
@@ -40,5 +41,10 @@ public class LoginPage extends PageObjectManager{
     public boolean isHomepageLoaded(){
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return isElementDisplayed("id", bottomNavBar);
+    }
+
+    public boolean isErrorMsgVisible(){
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return isElementDisplayed("id", invalidPasswordMsg);
     }
 }
